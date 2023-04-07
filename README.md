@@ -1,20 +1,19 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-## Your Task
+## Technology Used 
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+| Technology Used         | Resource URL           | 
+| ------------- |:-------------:| 
+| HTML    | [https://developer.mozilla.org/en-US/docs/Web/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | 
+| JavaScript | [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)|   
+| Git | [https://git-scm.com/](https://git-scm.com/)     |      
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+## Description 
 
-## User Story
+[Visit the Deployed Site](https://jeppjeppjepp0.github.io/ThirdPartyApiProject/)
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
 
-## Acceptance Criteria
+
 
 ```md
 GIVEN I am using a daily planner to create a schedule
@@ -32,68 +31,51 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
-The following animation demonstrates the application functionality:
+## Table of Contents (Optional)
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+* [Code Example](#code-example)
+* [Usage](#usage)
+* [Learning Points](#learning-points)
+* [Author Info](#author-info)
 
-## Grading Requirements
+## Code Example
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+One important piece of code that I wrote was the coloring system that changes with time. The following snippet of code shows how I used `dayjs()` to set the current hour. Since `dayjs()` can return hours that match the index of my `allHoursArray` by using the `.format()` method, I directly compared the current hour to the index of the array, and colored accordingly by setting the classes of each element in the array. 
 
-This Challenge is graded based on the following criteria:
+```js
+var currentHour = dayjs().format("HH");
 
-### Technical Acceptance Criteria: 40%
+for (var i = 0; i < allHoursArray.length; i++){
+    // set past
+    if (i < currentHour){
+        allHoursArray[i].attr("class","row time-block past");
+    }
+    // set present
+    else if (i == currentHour) {
+        allHoursArray[i].attr("class","row time-block present");
+    }
+    // set future
+    else {
+        allHoursArray[i].attr("class","row time-block future");
+    }
+}
+```
 
-* Satisfies all of the above acceptance criteria plus the following:
 
-  * Uses a date utility library to work with date and time
+## Usage 
 
-### Deployment: 32%
+![Site Langing Page](./Assets/LandingPage.png)
 
-* Application deployed at live URL
+![Saved Text Example](./Assets/SavedText.png)
 
-* Application loads with no errors
 
-* Application GitHub URL submitted
+## Learning Points 
 
-* GitHub repo contains application code
 
-### Application Quality: 15%
 
-* Application user experience is intuitive and easy to navigate
+## Author Info
 
-* Application user interface style is clean and polished
+### Jedd Javier
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+* [LinkedIn](https://www.linkedin.com/in/jedd-javier-4b323426b/)
+* [Github](github.com/jeppjeppjepp0)

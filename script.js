@@ -68,11 +68,12 @@ $(function () {
         for (var i = 0; i < allHoursArray.length; i++){
             console.log(allHoursArray[i].children().eq(1).val());
 
+            if (allHoursArray[i].children().eq(1).val() != null);
             storedValsArray[i] = allHoursArray[i].children().eq(1).val();
-            console.log(storedValsArray[i]);
-
-            localStorage.setItem("storedValsArray", JSON.stringify(storedValsArray));
+            // console.log(storedValsArray[i]);
         }
+
+        localStorage.setItem("storedValsArray", JSON.stringify(storedValsArray));
     });
 
 
@@ -101,13 +102,17 @@ $(function () {
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
     // attribute of each time-block be used to do this?
-    
-    storedValsArray = JSON.parse(localStorage.getItem("storedValsArray"));
+    if (localStorage.getItem("storedValsArray")){
+        storedValsArray = JSON.parse(localStorage.getItem("storedValsArray"));
+    }
+
     for (var i = 0; i < allHoursArray.length; i++){
         allHoursArray[i].children().eq(1).text(storedValsArray[i]);
     }
 
     // TODO: Add code to display the current date in the header of the page.
     var currentDateEl = $("#currentDay");
+
     currentDateEl.text(dayjs().format("MM/DD/YY hh:mm:ss"));
+    console.log(dayjs().format("MM/DD/YY hh:mm:ss"));
 });

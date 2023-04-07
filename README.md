@@ -12,8 +12,7 @@
 
 [Visit the Deployed Site](https://jeppjeppjepp0.github.io/ThirdPartyApiProject/)
 
-
-
+This project required students to use 3rd party APIs to manipulate the HTML of a webpage. The two APIs used were jQuery and dayJS. The full acceptance criteria are provided below: 
 
 ```md
 GIVEN I am using a daily planner to create a schedule
@@ -31,7 +30,7 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
-## Table of Contents (Optional)
+## Table of Contents
 
 * [Code Example](#code-example)
 * [Usage](#usage)
@@ -64,13 +63,23 @@ for (var i = 0; i < allHoursArray.length; i++){
 
 ## Usage 
 
+This site will load with an indicator of the current date and time. The page also loads with colored indicators to show what hour of the day it is, with gray indicating the past, red indicating the present, and green indicating the future.
+
 ![Site Langing Page](./Assets/LandingPage.png)
+
+Users can click on each card element to enter tasks or other information to be associated with that time. By clicking the blue save button, the information is then stored to local storage, and will persist on the page, even after refresh (as seen below).
 
 ![Saved Text Example](./Assets/SavedText.png)
 
 
 ## Learning Points 
 
+Below are the following topics/methods that I learned through this project:
+
+ * [jQuery](https://api.jquery.com/)
+ * [dayjs().format()](https://day.js.org/docs/en/display/format)
+ * [JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+ * [JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 
 ## Author Info
